@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+  <head>
+    <title>Virtual museum</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrturck/aframe-joystick/master/joystick.min.js"></script>
+    <script>
+      AFRAME.registerComponent('play-pause', {
+        init: function () {
+          var myVideo = document.querySelector('#video1');
+          var videoControls = document.querySelector('#videoControls');
+          this.el.addEventListener('mouseleave', function () {
+            if (myVideo.paused) {
+              myVideo.play();
+              videoControls.setAttribute('src', '#pause');
+            } else {
+              myVideo.pause();
+              videoControls.setAttribute('src', '#play');
+            }
+          });
+
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <a-scene loading-screen="dotsColor: red; backgroundColor: black" vr-mode-ui="enabled: false" joystick>
+
+      <!--Testing-->
+      <a-box color="red" link="href: link.html; on: click" position="2 2 -8"></a-box>
+      <!--Animation
+      <a-cylinder color="#F55" radius="0.1"
+                animation="property: components.material.material.color; type: color; dir: alternate; dur: 1000;
+                           easing: easeInSine; loop: true; to: #5F5"
+                animation__scale="property: scale; dir: alternate; dur: 200;
+                           easing: easeInSine; loop: true; to: 1.2 1 1.2"
+                animation__yoyo="property: position; dir: alternate; dur: 1000;
+                                 easing: easeInSine; loop: true; to: 0 3 0">
+      </a-cylinder>
+      -->
+  <a-image position="40.4 3.5 -26" src="poem/Screen Shot 2023-02-06 at 10.29.35 AM.png" width="5" height="6" rotation="0 280 0"></a-image>
+  <a-image position="41.4 3.5 -20" src="poem/Screen Shot 2023-02-06 at 10.37.20 AM.png" width="5" height="6" rotation="0 280 0"></a-image>
+  <a-image position="42.4 3.5 -14" src="poem/Screen Shot 2023-02-06 at 10.38.25 AM.png" width="5" height="6" rotation="0 280 0"></a-image>
+
+  <a-image position="0 3.6 0.1" src="#title" width="15" height="7"></a-image>
+  <a-image position="0 3.6 -1.05" src="images/title2.jpg" width="15" height="7" rotation="0 180 0"></a-image>
+
+  <a-entity light="type: point; intensity: 3; distance: 80; decay: 25"
+  position="39 5 -19"></a-entity>
+  <a-entity light="type: point; intensity: 3; distance: 80; decay: 25"
+  position="0 5 7"></a-entity>
+  <a-entity light="type: point; intensity: 5; distance: 100; decay: 25"
+  position="0 5 -27"></a-entity>
+  <a-entity light="type: ambient; intensity: 1"
+  position="0 10 0"></a-entity>
+      <!--Testing-->
+
+      <!--Assets management-->
+      <a-assets>
+        <a-assets-item id="elevator" src="assets/elevator/scene.gltf"></a-assets-item>
+        <a-assets-item id="chair" src="assets/eames_chair/scene.gltf"></a-assets-item>
+        <a-assets-item id="whitewall" src="images/whitewall.jpg"></a-assets-item>
+        <a-assets-item id="darkwall" src="images/darkwood.jpg"></a-assets-item>
+        <a-assets-item id="up" src="images/buttonup.png"></a-assets-item>
+        <a-assets-item id="down" src="images/buttondown.png"></a-assets-item>
+        <a-assets-item id="board" src="assets/standing_chalkboard_01_4k.gltf/standing_chalkboard_01_4k.gltf"></a-assets-item>
+        <a-assets-item id="stanchion" src="assets/stanchions/scene.gltf"></a-assets-item>
+        <a-assets-item id="title" src="images/title.jpg"></a-assets-item>
+        <img id="play" src="assets/play.png"></img>
+        <img id="pause" src="assets/pause.png"></img>
+        <video id="video1" src="artwork/video 1/1975.mp4" loop="true" autoplay="false"></video>
+
+      </a-assets>
+      
+      <!--Camera controls-->
+      <a-camera id="camera" camera="active: true" wasd-controls="acceleration: 100" position="0 3.5 15" cursor="fuse: false;">
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <a-camera id="camera2" camera="active: true" wasd-controls="acceleration: 100" position="0 18 25" cursor="fuse: false;">
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <!--Ground, roof and sky-->
+      <a-sky src="images/gray.jpg"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="80" src="images/wood.jpg" repeat="5 5"></a-plane>
+      <a-plane position="0 10 0" rotation="90 0 0" width="100" height="80" repeat="5 5" color="gray" opacity="1" material="side: double"></a-plane>
+      <a-plane position="0 14 0" rotation="-90 0 0" width="100" height="80" src="images/wood.jpg" repeat="5 5"></a-plane>
+      <a-plane position="0 24 0" rotation="90 0 0" width="100" height="80" repeat="5 5" color="gray" opacity="1" material="side: double"></a-plane>
+      
+      <!--exterior walls-->
+      <a-box position="0 5 -40" rotation="0 0 0" width="100" height="10" depth="0.2"  repeat="5 5" src="#whitewall" color="#D1D4D5"></a-box>
+      <a-box position="0 5 40" rotation="0 0 0" width="100" height="10" depth="0.2" repeat="5 5" src="#whitewall" color="#D1D4D5"></a-box>
+      <a-box position="50 5 0" rotation="0 0 0" width="0.2" height="10" depth="80"  repeat="5 5" src="#whitewall" color="#D1D4D5"></a-box>
+      <a-box position="-50 5 0" rotation="0 0 0" width="0.2" height="10" depth="80"  repeat="5 5" src="#whitewall" color="#D1D4D5"></a-box>
+      
+      <a-box position="0 0 -39.8" rotation="0 0 0" width="100" height="3" depth="0.2" repeat="40 2" src="#darkwall"></a-box>
+      <a-box position="0 0 39.8" rotation="0 0 0" width="100" height="3" depth="0.2" repeat="40 2" src="#darkwall"></a-box>
+      <a-box position="49.8 0 0" rotation="0 0 0" width="0.2" height="3" depth="80" color="white" repeat="40 2" src="#darkwall"></a-box>
+      <a-box position="-49.8 0 0" rotation="0 0 0" width="0.2" height="3" depth="80" color="white" repeat="40 2" src="#darkwall"></a-box>
+
+      <!--Artwork walls-->
+      <a-box color="white" position="0 2 -0.5" width="15" height="10" depth="1"></a-box>
+      <a-box color="white" position="-30 2 -30" width="20" height="10" depth="1"></a-box>
+      <a-box color="white" position="-20 2 -18" width="25" height="10" depth="1" rotation="0 90 0"></a-box>
+      <a-box color="white" position="-30 2 -6.5" width="7" height="10" depth="1" rotation="0 90 0"></a-box>
+      <a-box color="white" position="-40 2 10" width="25" height="10" depth="1" rotation="0 90 0"></a-box>
+
+      <a-box color="white" position="-30 2 30" width="20" height="10" depth="1"></a-box>
+
+      <a-box color="white" position="-20 2 10" width="8" height="10" depth="1" rotation="0 90 0"></a-box>
+
+      <a-box color="white" position="20 4 2" width="6" height="8" depth="1" rotation="0 160 0"></a-box>
+
+      <!--Corner walls bent on top right-->
+      <a-box color="white" position="27 2 -30" width="15" height="10" depth="1" rotation="0 20 0"></a-box>
+      <a-box color="white" position="42 2 -20" width="20" height="10" depth="1" rotation="0 100 0"></a-box>
+
+      <!--Video place-->
+      <a-circle position="1 0.05 -26" rotation="270 0 0" color="#990000" radius="7" src="images/carpet.jpg" repeat="5 5"></a-circle>
+      <a-video id="video1" src="#video1" width="17.777" height="8" position="0 5.75 -39.83">
+        <a-image id="videoControls" src="#play" position="10 -3 0.1" scale="2 2 2" play-pause></a-image>
+      </a-video>
+
+<!-------------------------------------------------------------------------------------------------------->
+
+<!--Artist 1-->
+      <a-image position="-29.45 3.5 -6.5" src="artwork/artist 1/Screen Shot 2023-01-28 at 8.32.12 PM (1).png" width="5" height="5" rotation="0 90 0"
+               event-set__mouseenter="_target: #aboutText1; visible: true"
+               event-set__mouseleave="_target: #aboutText1; visible: false"
+            >
+       <a-text id="aboutText1" value="artpiece #1" align="center" color="#FFF" visible="false" position="0 5 0"
+       geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+          </a-image>
+<!--Artist 1-->
+        
+<!--Artist 2-->
+<a-image position="-30.55 3.5 -6.5" src="artwork/artist 2/并不为人称道的美丽 (1).jpg" width="5" height="5" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText2; visible: true"
+event-set__mouseleave="_target: #aboutText2; visible: false"
+>
+<a-text id="aboutText2" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<!--Artist 2-->
+
+<!--Artist 3-->
+<a-image position="-30 3.5 29.45" src="artwork/artist 3/0110_1 (1).jpg" width="5" height="5" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText3; visible: true"
+event-set__mouseleave="_target: #aboutText3; visible: false"
+>
+<a-text id="aboutText3" value="artpiece #1" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-37 3.5 29.45" src="artwork/artist 3/0110_1 (2).jpg" width="5" height="5" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText4; visible: true"
+event-set__mouseleave="_target: #aboutText4; visible: false"
+>
+<a-text id="aboutText4" value="artpiece #1" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-23 3.5 29.45" src="artwork/artist 3/0110_1.jpg" width="5" height="5" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText5; visible: true"
+event-set__mouseleave="_target: #aboutText5; visible: false"
+>
+<a-text id="aboutText5" value="artpiece #1" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+</a-image>
+<!--Artist 3-->
+
+<!--Artist 4-->
+      <a-image position="-20.55 3.5 -22.5" src="artwork/artist 4/《擦亮眼睛派》 (1).png" width="9" height="5" rotation="0 90 0"></a-image>
+      <a-image position="-20.55 3.5 -11.5" src="artwork/artist 4/《装睡》.jpg" width="9" height="5" rotation="0 90 0"></a-image>
+      <a-image position="-30.5 3.5 -29.45" src="artwork/artist 4/《Ice-cream，I scream》.png" width="5" height="5" rotation="0 0 0"></a-image>
+      <a-image position="-19.45 3.5 -27.5" src="" width="5" height="5" rotation="0 90 0"></a-image>
+      <a-image position="-24 3.5 -29.45" src="artwork/artist 4/《禁果》.png" width="5" height="5" rotation="0 0 0"></a-image>
+      <a-image position="-37 3.5 -29.45" src="artwork/artist 4/《招娣们》 (1).png" width="5" height="5" rotation="0 0 0"></a-image>
+<!--Artist 4-->
+
+<!--Artist 5-->
+      <a-image position="-39.45 3.5 7" src="artwork/artist 5/1673544759032.png" width="5" height="5" rotation="0 90 0" 
+      event-set__mouseenter="_target: #aboutText6; visible: true"
+      event-set__mouseleave="_target: #aboutText6; visible: false"
+   >
+<a-text id="aboutText6" value="artpiece #3" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+      </a-image>
+
+      <a-image position="-39.45 3.5 13" src="artwork/artist 5/1673544778519.png" width="5" height="5" rotation="0 90 0"
+      event-set__mouseenter="_target: #aboutText7; visible: true"
+      event-set__mouseleave="_target: #aboutText7; visible: false"
+   >
+<a-text id="aboutText7" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+    </a-image>
+
+    <a-image position="-39.45 3.5 19" src="artwork/artist 5/1673544785447.png" width="5" height="5" rotation="0 90 0"
+      event-set__mouseenter="_target: #aboutText8; visible: true"
+      event-set__mouseleave="_target: #aboutText8; visible: false"
+   >
+<a-text id="aboutText8" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+    </a-image>
+
+    <a-image position="-39.45 3.5 1" src="artwork/artist 5/1673544816275.png" width="5" height="5" rotation="0 90 0"
+      event-set__mouseenter="_target: #aboutText9; visible: true"
+      event-set__mouseleave="_target: #aboutText9; visible: false"
+   >
+<a-text id="aboutText9" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+    </a-image>
+<!--Artist 5-->
+
+<!--Artist 6-->
+<a-image position="-19.4 3.5 10" src="artwork/artist 6/0116_1.jpg" width="5" height="5" rotation="0 90 0"></a-image>
+<!--Artist 6-->
+
+<!--Artist 8-->
+<a-image position="-20.6 3.5 10" src="artwork/artist 8/Screen Shot 2023-01-28 at 8.57.57 PM (1).png" width="5" height="5" rotation="0 270 0"></a-image>
+<!--Artist 8-->
+
+<!--Artist 17-->
+<a-image position="-19.4 3.5 -27" src="artwork/artist 17/17a.png" width="5" height="5" rotation="0 90 0"></a-image>
+<a-image position="-19.4 3.5 -21" src="artwork/artist 17/17b.png" width="5" height="5" rotation="0 90 0"></a-image>
+<a-image position="-19.4 3.5 -15" src="artwork/artist 17/Screen Shot 2023-02-07 at 8.21.16 PM.png" width="5" height="5" rotation="0 90 0"></a-image>
+<a-image position="-19.4 3.5 -9" src="artwork/artist 17/Screen Shot 2023-02-07 at 8.21.37 PM.png" width="5" height="5" rotation="0 90 0"></a-image>
+<!--Artist 17-->
+
+<!--literature 19-->
+<a-image position="49.85 5.5 0" src="artwork/literature 19/1.jpeg" width="5" height="7" rotation="0 270 0"></a-image>
+<a-image position="49.85 5.5 10" src="artwork/literature 19/2.jpeg" width="5" height="7" rotation="0 270 0"></a-image>
+<!--literature 19-->
+
+<!--literature 20-->
+<a-image position="49.85 5.5 20" src="artwork/literature 20/3.jpeg" width="5" height="7" rotation="0 270 0"></a-image>
+<!--literature 20-->
+
+<!--literature 21-->
+<a-image position="49.85 5.5 20" src="artwork/literature 21/4.jpeg" width="5" height="7" rotation="0 270 0"></a-image>
+<a-image position="49.85 5.5 30" src="artwork/literature 21/5.jpeg" width="5" height="7" rotation="0 270 0"></a-image>
+<!--literature 21-->
+
+<!-------------------------------------------------------------------------------------------------------->
+
+
+    <!--Imported 3d models-->
+      <a-entity gltf-model="#elevator" position="0 4.9 39.5" rotation="0 180 0" scale="0.022 0.025 0.022" shader="flat"></a-entity>
+      <a-entity gltf-model="#elevator" position="0 19.2 39.5" rotation="0 180 0" scale="0.022 0.025 0.022" shader="flat"></a-entity>
+      <a-entity gltf-model="#chair" position="-1 0 -25" rotation="0 180 0" scale="0.1 0.1 0.1" shader="flat"></a-entity>
+      <a-entity gltf-model="#chair" position="3 0 -25" rotation="0 180 0" scale="0.1 0.1 0.1" shader="flat"></a-entity>
+      <a-entity gltf-model="#board" position="-7 0 4.5" rotation="0 30 0" scale="3.5 3.5 3.5"></a-entity>
+              <!--right fence-->
+      <a-entity gltf-model="#stanchion" position="2 0 9.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 7.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 5.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 11.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 13.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 15.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+              <!--left fence-->
+      <a-entity gltf-model="#stanchion" position="-2 0 9.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 7.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 5.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 11.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 13.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 15.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+
+              <!--artframes-->
+      <a-entity gltf-model="#frame" position="-29.6 1 -9.4" rotation="0 0 0" scale=".02 .02 .029"></a-entity>
+
+              <!--carpet-->
+      <a-plane position="0 0.1 10" rotation="270 0 90" color="#990000" width="11" height="2" src="images/carpet.jpg" repeat="5 5"></a-plane>
+      
+      <!--Elevator up and down buttons-->
+                      <!--floor 1-->
+      <a-image id="cameraControls" src="#up" position="-1.8 3.4 39.38" scale="0.5 0.5 0.5"
+      event-set__click="_target: #camera; active: false"
+              ></a-image>
+      <a-image id="cameraControls" src="#down" position="-1.8 2.7 39.38" scale="0.5 0.5 0.5"></a-image>
+
+                      <!--floor 2-->
+      <a-image id="cameraControls" src="#up" position="-1.8 17.7 39.38" scale="0.5 0.5 0.5"></a-image>
+      <a-image id="cameraControls" src="#down" position="-1.8 17 39.38" scale="0.5 0.5 0.5"
+      event-set__click="_target: #camera; active: true"></a-image>
+      <!--------------------------------------->
+    
+                      <!--floor 2 walls-->
+      <a-box position="0 19 -40" rotation="0 0 0" width="100" height="10" depth="0.2"  repeat="5 5" opacity="0.5" material="side: double" color="#D1D4D5"></a-box>
+      <a-box position="0 19 40" rotation="0 0 0" width="100" height="10" depth="0.2" repeat="5 5" opacity="0.5" material="side: double" color="#D1D4D5"></a-box>
+      <a-box position="50 19 0" rotation="0 0 0" width="0.2" height="10" depth="80"  repeat="5 5" opacity="0.5" material="side: double" color="#D1D4D5"></a-box>
+      <a-box position="-50 19 0" rotation="0 0 0" width="0.2" height="10" depth="80"  repeat="5 5" opacity="0.5" material="side: double" color="#D1D4D5"></a-box>
+      
+                      <!--floor 2, 3d models-->
+      
+
+    </a-scene>
+  </body>
+</html>

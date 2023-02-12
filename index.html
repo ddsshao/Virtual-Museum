@@ -46,16 +46,14 @@
       });        
     </script>
 
-<script>
-  const videoButtons = document.querySelectorAll('.video-button');
-  const plane = document.querySelector('a-plane');
-
-  videoButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      plane.setAttribute('material', 'src', '#' + this.value);
-    });
-  });
-</script>
+<!-- Page loader -->
+<div class="loader-wrapper">
+  <div class="loader">
+      <span class="loader-inner"></span>
+  </div>
+</div>
+<!-- loader animation script -->
+<script src="loader.js"></script>
 
   </head>
 
@@ -73,6 +71,8 @@
                                  easing: easeInSine; loop: true; to: 0 3 0">
       </a-cylinder>
       -->
+
+
   <a-image position="40.4 3.5 -26" src="poem/Screen Shot 2023-02-06 at 10.29.35 AM.png" width="5" height="6" rotation="0 280 0"></a-image>
   <a-image position="41.4 3.5 -20" src="poem/Screen Shot 2023-02-06 at 10.37.20 AM.png" width="5" height="6" rotation="0 280 0"></a-image>
   <a-image position="42.4 3.5 -14" src="poem/Screen Shot 2023-02-06 at 10.38.25 AM.png" width="5" height="6" rotation="0 280 0"></a-image>
@@ -170,6 +170,7 @@
 
       <!--Video place-->
       <a-circle position="1 0.05 -26" rotation="270 0 0" color="#990000" radius="7" src="images/carpet.jpg" repeat="5 5"></a-circle>
+
       <a-video id="video1" src="#video1" width="17.777" height="8" position="0 5.75 -39.53">
         <a-image id="videoControls" src="#play" position="10 -3 0.1" scale="2 2 2" play-pause></a-image>
       </a-video>
@@ -181,8 +182,10 @@
                event-set__mouseenter="_target: #aboutText1; visible: true"
                event-set__mouseleave="_target: #aboutText1; visible: false"
             >
-       <a-text id="aboutText1" value="artpiece #1" align="center" color="#FFF" visible="false" position="0 5 0"
-       geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+       <a-text id="aboutText1" value="artist: 北炀"
+
+       wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+       geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
           </a-image>
 <!--Artist 1-->
         
@@ -191,9 +194,21 @@
 event-set__mouseenter="_target: #aboutText2; visible: true"
 event-set__mouseleave="_target: #aboutText2; visible: false"
 >
-<a-text id="aboutText2" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
-<!--Artist 2-->\
+<a-text id="aboutText2" value="Title: 并不为人称道的美丽The underappreciated beauty
+Artist: by邮箱投稿
+作品说明Description:
+发表初衷仅仅是因为它看上去很美，像一块玉石，还有女生曾有相同感受，觉得月经流淌的姿势很漂亮想要发到朋友圈，但因为不好意思不了了之。
+然而发表在小红书上收到了很多不好的评价，对女性正常的生理现象产生&quot;恶心&quot;、&quot;尴尬&quot;之类大惊小怪的感受，还有人挂我之类的，反应的激烈程度也超乎想象，对我进行人身攻击，诅咒家人。随后小红书将本贴审核了。
+联系起广告法不允许月经广告使用红色颜料水进行拍摄，我深感不适，这种使女性随时保持所谓&quot;体面&quot; &quot;洁白&quot; &quot;一尘不染&quot;，甚至恶意去&quot;美化&quot;真实事物的执念，我不明白。
+而诸多措施造成的结果也显而易见，人们赞颂一个抽象的女性概念，却缺乏勇气直视真正的女性，我希望人们，爱具体的人。
+The initial intention behind the publication was to showcase the beauty of the image, which resembles a piece of jade. Some girls appreciated the beauty of the menstrual flow posture and wanted to share it with their friends, but they were too embarrassed to do so.
+However, I received a lot of negative feedback and criticism, with many calling the normal female physiological process&quot;disgusting&quot; and &quot;embarrassing&quot;. Some even went as far as reporting the post and launching personal attacks on me and my family.
+The overwhelming and intense reaction was beyond my expectations, and I was left feeling uncomfortable with the reality that advertising laws prohibit the depiction of menstrual flow with red paint, perpetuating the notion that women should always be &quot;decent,&quot; &quot;white,&quot; &quot;spotless,&quot; and &quot;immaculate.&quot;
+This obsession with maintaining a certain image of women is detrimental, and the result is clear - people celebrate an idealized notion of femininity, but lack the courage to confront the reality of women. I hope to encourage people to love and accept the &quot;real&quot; them, rather than just an abstract concept of them. " 
+wrap-count="170" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 17; height: 4" material="color: black"></a-text>
+</a-image>
+<!--Artist 2-->
 
 <!--Artist 3-->
 <a-image position="-30 3.5 29.45" src="artwork/artist 3/0110_1 (1).jpg" width="5" height="5" rotation="0 180 0"
@@ -208,7 +223,7 @@ Artist: Helen (Analeia) Lam
 This painting, created in November-December 2022, is from the &quot;Embryo is on period&quot; printmaking series. The work is inspired by period shame and sanitary napkin shame. It also includes elements of a Chinese window pane, the author's own personal IP &quot;Embryo,&quot; and a portion of the author&apos;s another work, &quot;Bestower of Embryo&quot;. The whole work starts with &quot;placing the sanitary napkin on the window pane&quot; and deals with bigger issues such as menstrual shame, the sanitary napkin revolution, and feminism.
 "
 
-wrap-count="150" font="https://cdn.aframe.io/fonts/Exo2Bold.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
 geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
 </a-image>
 
@@ -223,7 +238,7 @@ Artist: Helen (Analeia) Lam
 这一幅油画创作于2022年十二月。作品灵感来源于经期羞耻&卫生巾羞耻。作品的原印板用了过期的卫生巾，这也是为何图案里有明显的卫生巾形状。作品涉及月经羞耻、卫生巾革命，女性主义等更大课题。
 This oil painting was created in December 2022. The artwork was inspired by period shame and sanitary napkin shame. The original printing plate for the work used expired sanitary napkins, which is why the shape of a sanitary napkin is evident in the design. The work addresses the larger themes of menstrual shame, the sanitary napkin revolution, and feminism.
 " 
-wrap-count="150" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
 geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
 </a-image>
 
@@ -239,7 +254,7 @@ Artist: Helen (Analeia) Lam
 这一幅油画创作于2022年二月至五月，灵感来源于徐州丰县铁链女事件。除了此事件以外，作品里还含有许多与女性主义、婚姻、神话、生育主题相关的元素，例如石榴和子宫。整幅作品以子宫的形状来构图，中间立着的是以徐州铁链女事件主角为原型的女性图像。一右一左的神灵图像分别参考来自汾阳后土圣母庙壁画局部（此庙供奉着后土圣母，旧时女性曾在此庙供奉求子。）和这幅油画的作者本人的另一件作品送子图Bestower of Embryo局部。整件作品从铁链女事件出发，涉及至女性拐卖、生育困境、中式婚姻和民间神话等更大课题。此作品曾在Walnut Hill School for the Arts Senior Show 2022中和Walnut Hill School for the Arts Spring Art Show 2022中展出，也曾制作成过卡片与书签周边。
 This oil painting was created between February and May 2022 and was inspired by the chained woman incident in Fengxian, Xuzhou. In addition to this incident, the work contains many elements related to feminism, marriage, mythology, and fertility themes, such as pomegranates and wombs. The entire work is composed in the shape of a womb, and in the center stands an image of a woman based on the protagonist of the Chained Woman incident. The images of the deities on the right and the left are respectively referenced from a partial fresco of the Hou Tu Sheng Mu Temple in Fenyang (this temple is dedicated to Hou Tu Sheng Mu, where women used to make offerings to seek children in olden times) and another work by the author of this painting, "Bestower of Embryo." The whole work starts from the incident of the chained woman and deals with larger issues such as women trafficking, fertility dilemmas, Chinese marriage, and folk mythology. This work has been exhibited at "Walnut Hill School for the Arts Senior Show 2022" and "Walnut Hill School for the Arts Spring Art Show 2022," and has also been made into cards and bookmarks.
 '
-wrap-count="150" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
 geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
 </a-image>
 <!--Artist 3-->
@@ -249,15 +264,41 @@ geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-te
       event-set__mouseenter="_target: #aboutText39; visible: true"
       event-set__mouseleave="_target: #aboutText39; visible: false"
       >
-      <a-text id="aboutText39" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      <a-text id="aboutText39" value="Title：Chastity arch
+      Artist:Jin
+      作品说明 Description:
+      我的研究和创作是关于中国女性的乳房解放。
+      乳房在中国的语境中，饱受性化的迫害和男性的凝视。由于性教育以及性观念的缺失，鲜少有中国女性对自己的乳房有完整的了解和接受度，对乳房大小的不满，对乳房形状的塑造无一不展现了男性凝视下对于女性身材的标准化。
+      基于以上的观点，我给标准化的人体模特和自己的乳房进行了翻模，构建了我与自身乳房的对话，希望引起更多的女性接受，了解，以健康的态度关注自己的乳房。
+      My research and artistic work focuses on freeing the breasts from sexualized objectification and the male gaze in Chinese society. There is a lack of comprehensive sex education and awareness of sexuality, leading to many Chinese women feeling unaccepting or unsure about their own breasts. The dissatisfaction with breast size and the pressure to conform to certain breast shapes are symptoms of the standardization of the female body under male scrutiny.
+      
+      
+      To address these issues, I created a flip book featuring both standard mannequins and my own breasts, as a way to start a dialogue between myself and my own body. Through this, I hope to encourage other women to embrace, understand, and take care of their own breasts with a positive attitude.
+      
+      " 
+      wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 15; height: 3.5" material="color: black"></a-text>
+    </a-image>
 
 <a-image position="29 3.5 24" src="artwork/sculpture 10/DSC01795.jpeg" width="5" height="5" rotation="0 270 0"
       event-set__mouseenter="_target: #aboutText40; visible: true"
       event-set__mouseleave="_target: #aboutText40; visible: false"
       >
-      <a-text id="aboutText40" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      <a-text id="aboutText40" value="Title：Chastity arch
+      Artist:Jin
+      作品说明 Description:
+      我的研究和创作是关于中国女性的乳房解放。
+      乳房在中国的语境中，饱受性化的迫害和男性的凝视。由于性教育以及性观念的缺失，鲜少有中国女性对自己的乳房有完整的了解和接受度，对乳房大小的不满，对乳房形状的塑造无一不展现了男性凝视下对于女性身材的标准化。
+      基于以上的观点，我给标准化的人体模特和自己的乳房进行了翻模，构建了我与自身乳房的对话，希望引起更多的女性接受，了解，以健康的态度关注自己的乳房。
+      My research and artistic work focuses on freeing the breasts from sexualized objectification and the male gaze in Chinese society. There is a lack of comprehensive sex education and awareness of sexuality, leading to many Chinese women feeling unaccepting or unsure about their own breasts. The dissatisfaction with breast size and the pressure to conform to certain breast shapes are symptoms of the standardization of the female body under male scrutiny.
+      
+      
+      To address these issues, I created a flip book featuring both standard mannequins and my own breasts, as a way to start a dialogue between myself and my own body. Through this, I hope to encourage other women to embrace, understand, and take care of their own breasts with a positive attitude.
+      
+      " 
+      wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 15; height: 3.5" material="color: black"></a-text>
+    </a-image>
 <!--Sculpture 10-->
 
 <!--Sculpture 12-->
@@ -265,22 +306,52 @@ geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-te
       event-set__mouseenter="_target: #aboutText41; visible: true"
       event-set__mouseleave="_target: #aboutText41; visible: false"
       >
-      <a-text id="aboutText41" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      <a-text id="aboutText41" value="Title：ID
+      媒介Media: oil painting
+      尺寸Size: 47inch*40inch
+      Artist: 赵鱼憨 Zoe
+      作品说明 Description:
+      对厌女症的反思：
+      Identity出发点来源于我的成长经历。小时候常有人夸我性格好，像&quot;男孩&quot;一样不计较。这句话像是给我埋了一颗厌女的种子，我开始厌恶自己身上的女性特质，不愿做所谓的&quot;脆弱&quot;的女孩。我开始排斥所有粉色裙子，把所有物品换成了&quot;代表男孩&quot;的蓝色，哪怕粉色曾是我最爱的颜色。我甚至在初中将头发剃成了平头，并在那时的身份证上留下了这张照片。但随着长大和阅读，我逐渐建立起自己的身份认同和性别认同，也渐渐留长了头发。回看这段经历，对我来说深刻又滑稽，造成厌女症和性别标签化的原因对我来说是一个值得思考的议题。这幅画是我成长经历的记录，也是我对厌女症的反思。身份证代表着Identity，对我来说也代表着我的自我身份认同。在创作方式上，我主要使用了蓝色来回忆我的&quot;蓝色时期&quot;，在尺寸上选择了1.2m的画布，使画中的我与现实中的我能有相同的大小。在创造视觉冲击力的同时，也能够让我回忆和反思过去的经历。
+      ID is the first work in my solo exhibition to represent myself, as the context of this painting relates to my upbringing. I grew up internalizing misogyny, believing that girls are fragile and sensitive. I started to resent my femininity, so I cut my hair short and replaced everything pink I owned with blue, even though pink used to be my favorite color. It wasn&apos;t until I got to high school that I realized the absurdity of my past behavior, but the picture of my short hair stayed forever on my ID card. So I began to reflect on what caused the &quot;misogyny&quot; in society. In this painting, I documented my &quot;blue period&quot; and what I looked like with short hair at the time. I chose a large size canvas so that I would look the same size in the painting as I do in real life. This painting depicts my gender self-identification process and my reflection on the misogyny and the binary labeling of gender in society.
+      " 
+      wrap-count="200" font="font/fonts.fnt" width="20" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 20; height: 3" material="color: black"></a-text>
+    </a-image>
 
 <a-image position="39.45 3.5 21" src="artwork/sculpture 12/IMG_8437.jpg" width="5" height="5" rotation="0 270 0"
       event-set__mouseenter="_target: #aboutText42; visible: true"
       event-set__mouseleave="_target: #aboutText42; visible: false"
       >
-      <a-text id="aboutText42" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      <a-text id="aboutText42" value="Title：Gaze
+      媒介Media: water color, color pencils, pastels
+      尺寸Size:47inch*40inch
+      Artist: 赵鱼憨 Zoe
+      Exhibited in Chengdu YOUTH exhibition
+      作品说明 Description:
+      对厌女症的反思：
+      在了解电影理论时，福科的凝视理论给了我启发。&quot;凝视&quot;这一动词暗示了观察者和被观察者之间的权力结构，因此我想要通过创作被凝视的女性来表现父权制社会中女性的客体化身份位置。我设置了一个自上而下的镜头来描绘女性，画中她们没有双眼，因为她们没有凝视的权利。她们近似扭曲地舞蹈、表演，展现着自己的柔软——男性凝视下衡量女性的标准之一。我希望用这种夸张和概念化的方式引起观者对男权社会中女性生存困境的思考，任何一个观者都是&quot;凝视者&quot;，我也希望通过这种方式建立观众与作品的连接。
+      The verb gaze implies a power structure between the viewer and the watched, and the painting reflects the objectified identity of women in a patriarchal society under the male gaze. I set up a top-down shot to depict the women, indicating they are observed. On the contrary, women are painted with no eyes because they do not have the right to gaze. As objects, women are forced to conform to the subject by showing their bodies, although they feel pain. This scene is a true reflection of the situation of women in a patriarchal society, and I hope to use this exaggerated and conceptual way of expression to arouse public reflection. For the materials I used I mainly chose pastels, watercolors and colored pencils. I hope to achieve a visual breakthrough through the combination of these three materials. Pastel gives the body a natural color transition and creates a hazy effect, while the watercolor and colored pencil are used to clearly delineate the details of the hair. The haziness and clarity give the painting a visually balanced effect.      
+      " 
+      wrap-count="170" font="font/fonts.fnt" width="13" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+    </a-image>
 
 <a-image position="39.45 3.5 27" src="artwork/sculpture 12/IMG_8438.jpg" width="5" height="5" rotation="0 270 0"
       event-set__mouseenter="_target: #aboutText43; visible: true"
       event-set__mouseleave="_target: #aboutText43; visible: false"
       >
-      <a-text id="aboutText43" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      <a-text id="aboutText43" value="Title：Chastity arch
+      媒介Media: sculpture/books
+      尺寸Size:47inch*47inch
+      Artist: 赵鱼憨
+      作品说明 Description:
+      正如戴锦华教授所说，好莱坞电影工业成功塑造了四种女性形象：地母、荡妇、女巫、祭品，而这样的定型化形象让我产生了思考。正巧那段时间，在朋友圈里看到了一个关于&quot;最美儿媳大赛&quot;的分享，拜托大家帮忙拉票，这让我联想到了牌坊。贞节牌坊用于表彰那些在丈夫去世后没有再婚的寡妇，是将女性的社会价值与男性需求绑定在一起，用所谓的褒奖将女性禁锢在这样的价值体系的牢笼中。虽然贞节牌坊的时代早已过去，但男性凝视下的道德标准仍然存在：例如互联网的&quot;鉴擦&quot;以及许多短视频博主的&quot;恋爱经&quot;和&quot;婚姻宝书&quot;，《如何嫁给一个好老公》成为了当代《女诫》，仍然有许多女性试图通过物化和塑造自己来迎合男性的喜好。我在二手书店里购买了300本这样的书籍，切碎、拼贴，堆砌成一个牌坊。每一页纸都很薄，但这些书却比木头更难切割，我买遍了家用锯子、切割机、拉花机，甚至尝试过裁布机，好在最后找到了合适的工具。在我看来，书的材质正好与社会对女性的规训相符：每一句轻飘飘的无形的话，都将会筑成一个巨大且沉重的牌坊。
+      &quot;A woman has to be a virtuous and gentle mother&quot;A woman who dresses sexy is immoral.&quot; Such comments are prevalent in the environment I live. A patriarchal society sets moral standards for women based on male needs, and women who meet the criteria are praised, while those who deviate from them will be shamed, denigrated as &quot;sluts.&quot; In ancient China, the chastity pagoda was used to honor widows who did not remarry after the death of their husbands. Although the era of chastity pagodas is long gone, today&apos;s best-selling books on &quot;how to marry a good husband&quot; still shows restraint for women. I collected 300 of these books, cut them up, and stuck them together in a collage to make a chastity arch. My choice of this medium also has to do with the nature of the paper itself: people often inadvertently speak about prejudices against women in words as light as paper, but when these prejudices and values accumulate they can place a heavy burden on women.
+      " 
+      wrap-count="170" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 18; height: 3" material="color: black"></a-text>
+    </a-image>
 <!--Sculpture 12-->
 
 <!--Artist 4-->
@@ -288,8 +359,13 @@ geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-te
       event-set__mouseenter="_target: #aboutText16; visible: true"
       event-set__mouseleave="_target: #aboutText16; visible: false"
       >
-      <a-text id="aboutText16" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      <a-text id="aboutText16" value="Title: 擦亮眼睛派 Keep Your Eyes Open
+      Artist: 特芙姥姥
+      "
+
+      wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+    </a-image>
 
       <a-image position="-20.55 3.5 -11.5" src="artwork/artist 4/《装睡》.jpg" width="9" height="5" rotation="0 270 0"
       event-set__mouseenter="_target: #aboutText17; visible: true"
@@ -297,35 +373,46 @@ geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-te
       >
       <a-text id="aboutText17" value="Title: 装睡 Pretend To Be Asleep
       Artist: 特芙姥姥" 
-      wrap-count="150" width="15" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      wrap-count="150" font="font/fonts.fnt" width="15" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+    </a-image>
 
       <a-image position="-30.5 3.5 -29.45" src="artwork/artist 4/《Ice-cream，I scream》.png" width="5" height="5" rotation="0 0 0"
       event-set__mouseenter="_target: #aboutText18; visible: true"
       event-set__mouseleave="_target: #aboutText18; visible: false"
       >
-      <a-text id="aboutText18" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      <a-text id="aboutText18" value="Title: Ice cream, I scream
+      Artist: 特芙姥姥"
 
-      <a-image position="-19.45 3.5 -27.5" src="" width="5" height="5" rotation="0 90 0"
-      event-set__mouseenter="_target: #aboutText19; visible: true"
-      event-set__mouseleave="_target: #aboutText19; visible: false"
-      >
-      <a-text id="aboutText19" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+    </a-image>
+
+      
 
       <a-image position="-24 3.5 -29.45" src="artwork/artist 4/《禁果》.png" width="5" height="5" rotation="0 0 0"
       event-set__mouseenter="_target: #aboutText20; visible: true"
       event-set__mouseleave="_target: #aboutText20; visible: false"
       >
-      <a-text id="aboutText20" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+      <a-text id="aboutText20" value="Title: 禁果 Forbidden Fruit
+      Artist: 特芙姥姥"
+
+      wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+    </a-image>
+
       <a-image position="-37 3.5 -29.45" src="artwork/artist 4/《招娣们》 (1).png" width="5" height="5" rotation="0 0 0"
       event-set__mouseenter="_target: #aboutText21; visible: true"
       event-set__mouseleave="_target: #aboutText21; visible: false"
       >
-      <a-text id="aboutText21" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-      geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image></a-image>
+      <a-text id="aboutText21" value="Title: 招娣们 &quot;Zhao Di&quot;
+      Artist: 特芙姥姥
+      *The name &quot;Zhao Di&quot; represents the family&apos;s wish to have a son.
+      "
+
+      wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+    </a-image>
 <!--Artist 4-->
 
 <!--Artist 5-->
@@ -333,32 +420,52 @@ geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-te
       event-set__mouseenter="_target: #aboutText6; visible: true"
       event-set__mouseleave="_target: #aboutText6; visible: false"
    >
-<a-text id="aboutText6" value="artpiece #3" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText6" value="Title: 招娣 &quot;Zhao Di&quot;
+Artist: 采矿二班孙菱
+"
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
       </a-image>
 
       <a-image position="-39.45 3.5 13" src="artwork/artist 5/1673544778519.png" width="5" height="5" rotation="0 90 0"
       event-set__mouseenter="_target: #aboutText7; visible: true"
       event-set__mouseleave="_target: #aboutText7; visible: false"
    >
-<a-text id="aboutText7" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText7" value="Title: 唐山图 Paintings for the Tangshan Incident
+Artist: 采矿二班孙菱
+"
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
     </a-image>
 
     <a-image position="-39.45 3.5 19" src="artwork/artist 5/1673544785447.png" width="5" height="5" rotation="0 90 0"
       event-set__mouseenter="_target: #aboutText8; visible: true"
       event-set__mouseleave="_target: #aboutText8; visible: false"
    >
-<a-text id="aboutText8" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText8" value="Title: 唐山图 Paintings for the Tangshan Incident
+Artist: 采矿二班孙菱"
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
     </a-image>
 
     <a-image position="-39.45 3.5 1" src="artwork/artist 5/1673544816275.png" width="5" height="5" rotation="0 90 0"
       event-set__mouseenter="_target: #aboutText9; visible: true"
       event-set__mouseleave="_target: #aboutText9; visible: false"
    >
-<a-text id="aboutText9" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText9" value="Title: 女字旁大多是贬义词
+Most of the Chinese characters using &quot;女&quot;(woman) as their radicals are derogatory words
+Artist: 采矿二班孙菱
+作品说明 Description:
+是关于女字旁大多是贬义词这个议题，最后一张图是对它的解释
+&quot;我们老师说过，女字旁的字大多是贬义词。&quot;出自B站热评
+The Chinese characters presented in this painting all use &quot;女&quot;(meaning woman) as their radicals and all represent derogatory meanings like &quot;bitch&quot;, &quot;prostitute&quot;, &quot;whore&quot;, &quot;adultery&quot;, &quot;treachery&quot;, &quot;maidservant&quot; and so on.
+"
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
     </a-image>
 <!--Artist 5-->
 
@@ -367,8 +474,15 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText15; visible: true"
 event-set__mouseleave="_target: #aboutText15; visible: false"
 >
-<a-text id="aboutText15" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText15" value="Title: 小随笔《红》Red
+Artist: 卯卵
+作品说明 Description:
+炙热又羞涩的 ，掀开衣襟，撩起裙摆。不可言谈的女性的美。&quot;爱情所以选中性作为表达，作为仪式，正是因为，性，以其极端的遮蔽状态和极端的敞开形式，符合了爱的要求。&quot; 炙热又羞涩的，丝缎一样的，可破碎的又坚韧的红。
+Hot and shy , lifting the bodice and lifting the hem of the skirt. The beauty of the unspeakable feminine. &quot;Love chooses sexuality as an expression, as a ritual, precisely because, sex, with its extreme state of concealment and extreme form of openness, conforms to the requirements of love.&quot; A hot and shy, satin-like, breakable and tough red."
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+</a-image>
 <!--Artist 6-->
 
 <!--Artist 13-->
@@ -376,43 +490,55 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText22; visible: true"
 event-set__mouseleave="_target: #aboutText22; visible: false"
 >
-<a-text id="aboutText22" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText22" value="Title: 追逐 Chase
+Artist: 如晨
+作品说明 Description:
+这幅画的起因是想要鼓励我的朋友：最近她想要从国企辞职从事绘画工作，但她的父母希望她稳定的在国企度过一生，早日结婚生子。因为这种无法调和的矛盾，让她感到伤心和崩溃。
+我当然希望她能从事自己热爱的工作，就像画面中唯一骑着脱缰白马的小姑娘，不参与父母为她安排的人生赛道，奔向只属于她的天地。不过我在绘制的过程中想起了更多以前的记忆，关于我的同学朋友，关于我自己，关于当年大家的梦想与追求，这所有的事情可能与我画面中描绘的不一样，但这种被追逐和被期望的焦灼感似乎是相通的。我也因为画面而重新体会到了这种焦灼，它至今仍然在，让我感到自己是一位脱离大众的罪人。
+其实我非常相信父母的初衷是好的，为孩子们安排的道路也是充满希望与幸福的：可能是一个快乐的家，也可能是一个优秀的人。但到底是什么把一份期望变成了一场追逐，又是什么让孩子必须经历逃走的过程才能离开赛道奔向真正的宽阔天地，我很难解释清楚，也许我以后有了孩子也会经历类似的焦灼，但我希望我能记住：&quot;我的孩子其实不是我的孩子，他们在我身边，却不属于我。&quot;
+The original reason for creating this painting was to encourage my friend: she recently wanted to resign from the state-owned enterprise to pursue her painting career, but her parents wanted her to spend her life steadily in the state enterprise and get married and have children soon. Because of this irreconcilable conflict, she felt sad and broken.
+ I certainly hope that she can engage in the work she loves, just like the only little girl in the picture riding a white horse off the bridle, not having to walk on the track of life arranged for her by her parents, running to the world that only belongs to her. But in the process of drawing, I remembered more memories from the past, about my classmates and friends, about myself, about the dreams and pursuits of everyone back then. All these things may not be the same as what I depicted in the picture, but the anxious feeling of being chased and expected seems to be the same. I also re-experienced this anxiety because of the picture, and it is still there today, making me feel like a sinner who is out of touch with the public.
+I actually believe very much that parents have good intentions, and that the path they set for their children is full of hope and happiness: it could be a happy home or a good person. But what exactly turns an expectation into a chase, and what makes a child have to go through the process of escaping before leaving the track to run to the real wide world, I find it hard to explain clearly. Maybe I will experience similar anxiety when I have children in the future, but I hope I can remember: &quot;My children are not really my children, they are with me, but they do not belong to me.&quot;"
+
+wrap-count="250" font="font/fonts.fnt" width="20" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 20; height: 3" material="color: black"></a-text>
+</a-image>
 
 <a-image position="-28.45 3.5 6.5" src="artwork/artist 13/Screen Shot 2023-02-07 at 7.56.48 PM.png" width="5" height="5" rotation="0 90 0"
-event-set__mouseenter="_target: #aboutText23; visible: true"
-event-set__mouseleave="_target: #aboutText23; visible: false"
->
-<a-text id="aboutText23" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+></a-image>
+
 
 <a-image position="-28.45 3.5 -6.5" src="artwork/artist 13/Screen Shot 2023-02-07 at 8.00.37 PM.png" width="5" height="5" rotation="0 90 0"
-event-set__mouseenter="_target: #aboutText24; visible: true"
-event-set__mouseleave="_target: #aboutText24; visible: false"
->
-<a-text id="aboutText24" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+></a-image>
+
 
 <a-image position="-29.55 3.5 -6.5" src="artwork/artist 13/Screen Shot 2023-02-07 at 8.00.52 PM.png" width="5" height="5" rotation="0 270 0"
-event-set__mouseenter="_target: #aboutText25; visible: true"
-event-set__mouseleave="_target: #aboutText25; visible: false"
->
-<a-text id="aboutText25" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+></a-image>
+
 
 <a-image position="-29.55 3.5 0" src="artwork/artist 13/Screen Shot 2023-02-07 at 8.01.11 PM.png" width="5" height="5" rotation="0 270 0"
 event-set__mouseenter="_target: #aboutText26; visible: true"
 event-set__mouseleave="_target: #aboutText26; visible: false"
 >
-<a-text id="aboutText26" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText26" value="Title: 追逐 Chase
+Artist: 如晨
+作品说明 Description:
+这幅画的起因是想要鼓励我的朋友：最近她想要从国企辞职从事绘画工作，但她的父母希望她稳定的在国企度过一生，早日结婚生子。因为这种无法调和的矛盾，让她感到伤心和崩溃。
+我当然希望她能从事自己热爱的工作，就像画面中唯一骑着脱缰白马的小姑娘，不参与父母为她安排的人生赛道，奔向只属于她的天地。不过我在绘制的过程中想起了更多以前的记忆，关于我的同学朋友，关于我自己，关于当年大家的梦想与追求，这所有的事情可能与我画面中描绘的不一样，但这种被追逐和被期望的焦灼感似乎是相通的。我也因为画面而重新体会到了这种焦灼，它至今仍然在，让我感到自己是一位脱离大众的罪人。
+其实我非常相信父母的初衷是好的，为孩子们安排的道路也是充满希望与幸福的：可能是一个快乐的家，也可能是一个优秀的人。但到底是什么把一份期望变成了一场追逐，又是什么让孩子必须经历逃走的过程才能离开赛道奔向真正的宽阔天地，我很难解释清楚，也许我以后有了孩子也会经历类似的焦灼，但我希望我能记住：&quot;我的孩子其实不是我的孩子，他们在我身边，却不属于我。&quot;
+The original reason for creating this painting was to encourage my friend: she recently wanted to resign from the state-owned enterprise to pursue her painting career, but her parents wanted her to spend her life steadily in the state enterprise and get married and have children soon. Because of this irreconcilable conflict, she felt sad and broken.
+ I certainly hope that she can engage in the work she loves, just like the only little girl in the picture riding a white horse off the bridle, not having to walk on the track of life arranged for her by her parents, running to the world that only belongs to her. But in the process of drawing, I remembered more memories from the past, about my classmates and friends, about myself, about the dreams and pursuits of everyone back then. All these things may not be the same as what I depicted in the picture, but the anxious feeling of being chased and expected seems to be the same. I also re-experienced this anxiety because of the picture, and it is still there today, making me feel like a sinner who is out of touch with the public.
+I actually believe very much that parents have good intentions, and that the path they set for their children is full of hope and happiness: it could be a happy home or a good person. But what exactly turns an expectation into a chase, and what makes a child have to go through the process of escaping before leaving the track to run to the real wide world, I find it hard to explain clearly. Maybe I will experience similar anxiety when I have children in the future, but I hope I can remember: &quot;My children are not really my children, they are with me, but they do not belong to me.&quot;
+
+"
+
+wrap-count="250" font="font/fonts.fnt" width="20" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 20; height: 3" material="color: black"></a-text>
+</a-image>
 
 <a-image position="-29.55 3.5 6.5" src="artwork/artist 13/Screen Shot 2023-02-07 at 8.01.23 PM.png" width="5" height="5" rotation="0 270 0"
-event-set__mouseenter="_target: #aboutText27; visible: true"
-event-set__mouseleave="_target: #aboutText27; visible: false"
->
-<a-text id="aboutText27" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+></a-image>
+
 <!--Artist 13-->
 
 <!--Artist 14-->
@@ -420,15 +546,33 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText28; visible: true"
 event-set__mouseleave="_target: #aboutText28; visible: false"
 >
-<a-text id="aboutText28" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText28" value="Title: 到时候你就想生孩子了～ By that time, you will want children
+Artist: 三贰一插画
+作品说明 Description：
+我相信许多表达过自己不想生孩子的女性多少都听到过这句话，我也不例外。最近在看《成为母亲的选择》这本书（更喜欢英文直译：后悔当妈），书中也同样提到了&quot;到时候你就想生孩子了，你不生孩子一定会后悔&quot;类似的话。
+这也是我创作的灵感来源：生育是女性的超能力，但我们有不使用这一能力的权利。
+I&apos;m sure many women who have expressed that they don&apos;t want to have children have more or less heard the phrase in the title of the painting, and I&apos;m no exception. I recently read the book which has been translated as The Choice to Become a Mother in Chinese, while I prefer the direct English original name: Regretting Motherhood. This book also mentions similar words: &quot;When the time comes, you will want to have children, and you will definitely regret not having children&quot;. This is what inspired me to create this piece of art: fertility is a superpower for women, but we have the right not to use it.
+"
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+</a-image>
 
 <a-image position="-36 3.5 -19.45" src="artwork/artist 14/Screen Shot 2023-02-07 at 8.06.13 PM.png" width="5" height="5" rotation="0 0 0"
 event-set__mouseenter="_target: #aboutText29; visible: true"
 event-set__mouseleave="_target: #aboutText29; visible: false"
 >
-<a-text id="aboutText29" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText29" value="Title: 女孩就应该稳定一点～Girls should be more stable ~
+Artist: 三贰一插画
+作品说明 Description：
+选择稳定是否就意味着将机会让给了别人？当选择稳定的都是女性，那在高风险中获益的人又是谁呢？
+或许话语权的缺失就是从选择所谓&quot;稳定&quot;开始的？
+Does opting for stability come at the cost of foregone opportunities for others? If women prioritize stability, who benefits from taking on higher risks? Could it be that the absence of representation begins with the choice for stability?
+"
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+</a-image>
 <!--Artist 14-->
 
 <!--Artist 15-->
@@ -436,8 +580,16 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText31; visible: true"
 event-set__mouseleave="_target: #aboutText31; visible: false"
 >
-<a-text id="aboutText31" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText31" value="Title: 在人间 l 你是姐姐，要让着弟弟On earth l You are the sister, you should help brother
+Artist:朕有鱼
+作品说明 Description：
+吃的，要紧着儿子；喝的，要紧着儿子；穿的，要紧着儿子。女儿啊，你要照顾好弟弟，他是咱们老×家的金孙哟！
+Food, to be close to the son; drink, to be close to the son; clothing, to be close to the son. Daughter, you must take good care of your brother, he is the golden son of our x family!
+"
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+</a-image>
 <!--Artist 15-->
 
 <!--Artist 11-->
@@ -445,8 +597,16 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText32; visible: true"
 event-set__mouseleave="_target: #aboutText32; visible: false"
 >
-<a-text id="aboutText32" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText32" value="Title: 公共厕所Public Restrooms
+Artist:Kylin
+作品说明 Description：
+我当初创作这幅作品的时候是从公共女厕所得到灵感的，一直都很&quot;阴森&quot;而且又脏又暗，中间的赤裸女人代表着作为女性感受到的孤独和疼痛，然后可以理解为精神的痛苦或者生理痛，虽然作品本身不能直接的表达重男轻女的观念，但作为女性作家，希望作品可以为赤身裸体的人们带来共鸣。
+My initial inspiration for this work was public restrooms. The figure of a naked woman in the center symbolizes the feelings of loneliness and suffering experienced by women, which can be seen as both emotional and physical pain. As a female author, I hope that despite the fact that the piece itself cannot represent the idea of patriarchy explicitly, it can foster empathy for the nude people.
+"
+
+wrap-count="150" font="font/fonts.fnt" width="10" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+</a-image>
 <!--Artist 11-->
 
 <!--Artist 7-->
@@ -454,15 +614,23 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText34; visible: true"
 event-set__mouseleave="_target: #aboutText34; visible: false"
 >
-<a-text id="aboutText34" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText34" value="Artist: shirunmeng
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 4 0"
+geometry="primitive: plane; width: 5; height: 2" material="color: black"></a-text>
+</a-image>
 
 <a-image position="-29.55 3.5 20" src="artwork/artist 7/0117_2.jpg" width="5" height="5" rotation="0 270 0"
 event-set__mouseenter="_target: #aboutText35; visible: true"
 event-set__mouseleave="_target: #aboutText35; visible: false"
 >
-<a-text id="aboutText35" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText35" value="Artist: shirunmeng
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 4 0"
+geometry="primitive: plane; width: 5; height: 2" material="color: black"></a-text>
+</a-image>
 <!--Artist 7-->
 
 <!--Artist 18-->
@@ -470,8 +638,16 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText30; visible: true"
 event-set__mouseleave="_target: #aboutText30; visible: false"
 >
-<a-text id="aboutText30" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText30" value="Title: Smoother
+Artist:Rei
+作品说明 Description：
+作品来源于经常在网上看到一些对女性的刻板印象，从性格到穿衣再到言语都对女性有着规定。必须是温柔的，必须是纤细苗条的，必须是白的，必须是…这些条条框框束缚了女性导致了许多人都套在了一个模子里，也就是为什么画中的女孩子很单调。想要呼吁这个社会的女性不需要被这些规则和要求所束缚，正如所说，你不一定非要长成玫瑰，你乐意的话做茉莉，做雏菊，做无名小花，做千千万。希望每个女孩子都可以成为自己喜欢的就好了。
+This work reflects the common gender stereotypes that I observe on the internet, where women are expected to conform to specific standards in their appearance, behavior, and speech. The pressure to be gentle, thin, white, and so on, imposes restrictive norms on women and creates a homogenized image of femininity. Through my art, I aim to convey the message that women should not be confined by these expectations, but instead should be free to be who they want to be. Whether it&apos;s a rose, jasmine, daisy, or any other flower, every woman should have the freedom to blossom into what brings them happiness.
+"
+
+wrap-count="150" font="font/fonts.fnt" width="10" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+</a-image>
 <!--Artist 18-->
 
 <!--Artist 8-->
@@ -479,57 +655,85 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText14; visible: true"
 event-set__mouseleave="_target: #aboutText14; visible: false"
 >
-<a-text id="aboutText14" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText14" value="Title: 生来就遭受如此？Born to suffer?
+Artist: m13321890986
+作品说明 Description:
+中间的 ♀ ，类似十字架，上面的黑影是一名女性，被吊在♀上。面对的是流言蜚语和世俗对女性的恶臭要求凝视。我想表达的是作为一名女性，我们生来就必须面对这种评价吗！？讽刺了社会总是对女性的要求高，在男性眼里，女性永远都不是完美的，对此我只想说：不必让所有人都喜欢，因为不是所有人都是人。
+The black shadow above the cross-like ♀ in the middle is a woman hanging from it, facing gossip and the world&apos;s foul-smelling demands and stares on women. I wanted to express the idea that as women,  are we born to face this kind of judgment? This artwork satirizes the fact that society is always demanding of women and that in the eyes of men, women are never perfect. To this I just want to say: It is not necessary to make everyone like you, because not everyone is human.
+"
+
+wrap-count="150" font="font/fonts.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
+</a-image>
 <!--Artist 8-->
 
 <!--Artist 16-->
 <a-image position="-49.75 5 18" src="artwork/artist 16/IMG_9040.png" width="6" height="6" rotation="0 90 0"
-event-set__mouseenter="_target: #aboutText28; visible: true"
-event-set__mouseleave="_target: #aboutText28; visible: false"
+event-set__mouseenter="_target: #aboutText51; visible: true"
+event-set__mouseleave="_target: #aboutText51; visible: false"
 >
-<a-text id="aboutText28" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText51" value="插画合集：对自我的探索Exploration of self
+Artist:迷迷
+Title: 原生家庭-捆绑的爱Family of Origin-Bonds of Love
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="20 0 0" color="#FFF" visible="false" position="0 4 1"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
 </a-image>
 
 <a-image position="-49.75 5 10" src="artwork/artist 16/IMG_9041.png" width="6" height="6" rotation="0 90 0"
-event-set__mouseenter="_target: #aboutText29; visible: true"
-event-set__mouseleave="_target: #aboutText29; visible: false"
+event-set__mouseenter="_target: #aboutText52; visible: true"
+event-set__mouseleave="_target: #aboutText52; visible: false"
 >
-<a-text id="aboutText29" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText52" value="Title: 亲密关系-渐行渐远的友谊Intimacy - Drifting Friendship
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 4 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
 </a-image>
 
 <a-image position="-49.75 5.7 2" src="artwork/artist 16/IMG_9042.png" width="6" height="8" rotation="0 90 0"
-event-set__mouseenter="_target: #aboutText30; visible: true"
-event-set__mouseleave="_target: #aboutText30; visible: false"
+event-set__mouseenter="_target: #aboutText53; visible: true"
+event-set__mouseleave="_target: #aboutText53; visible: false"
 >
-<a-text id="aboutText30" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText53" value="Title: 亲密关系-相互治愈的爱情Intimacy - Mutual Healing Love
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 4 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
 </a-image>
 
 <a-image position="-49.75 5 -6" src="artwork/artist 16/IMG_9043.png" width="6" height="6" rotation="0 90 0"
-event-set__mouseenter="_target: #aboutText31; visible: true"
-event-set__mouseleave="_target: #aboutText31; visible: false"
+event-set__mouseenter="_target: #aboutText54; visible: true"
+event-set__mouseleave="_target: #aboutText54; visible: false"
 >
-<a-text id="aboutText31" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText54" value="Title: 封闭的我Sealed Me
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 4 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
 </a-image>
 
 <a-image position="-49.75 5 -14" src="artwork/artist 16/IMG_9044.png" width="6" height="6" rotation="0 90 0"
-event-set__mouseenter="_target: #aboutText32; visible: true"
-event-set__mouseleave="_target: #aboutText32; visible: false"
+event-set__mouseenter="_target: #aboutText55; visible: true"
+event-set__mouseleave="_target: #aboutText55; visible: false"
 >
-<a-text id="aboutText32" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText55" value="Title: 你好，世界Hi, World
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 4 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
 </a-image>
 
 <a-image position="-49.75 5.7 -22" src="artwork/artist 16/IMG_9045.png" width="6" height="8" rotation="0 90 0"
-event-set__mouseenter="_target: #aboutText33; visible: true"
-event-set__mouseleave="_target: #aboutText33; visible: false"
+event-set__mouseenter="_target: #aboutText56; visible: true"
+event-set__mouseleave="_target: #aboutText56; visible: false"
 >
-<a-text id="aboutText33" value="artpiece #2" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text>
+<a-text id="aboutText56" value="Title: 所及之处皆是所爱之物Your love is everywhere.
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 3.5 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
 </a-image>
 <!--Artist 16-->
 
@@ -538,29 +742,41 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 event-set__mouseenter="_target: #aboutText10; visible: true"
       event-set__mouseleave="_target: #aboutText10; visible: false"
    >
-<a-text id="aboutText10" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText10" value="Artist: Fangchun"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+</a-image>
 
 <a-image position="-19.4 3.5 -21" src="artwork/artist 17/17b.png" width="5" height="5" rotation="0 90 0"
 event-set__mouseenter="_target: #aboutText11; visible: true"
       event-set__mouseleave="_target: #aboutText11; visible: false"
    >
-<a-text id="aboutText11" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText11" value="Artist: Fangchun"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+</a-image>
 
 <a-image position="-19.4 3.5 -15" src="artwork/artist 17/Screen Shot 2023-02-07 at 8.21.16 PM.png" width="5" height="5" rotation="0 90 0"
 event-set__mouseenter="_target: #aboutText12; visible: true"
       event-set__mouseleave="_target: #aboutText12; visible: false"
    >
-<a-text id="aboutText12" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText12" value="Artist: Fangchun"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+</a-image>
 
 <a-image position="-19.4 3.5 -9" src="artwork/artist 17/Screen Shot 2023-02-07 at 8.21.37 PM.png" width="5" height="5" rotation="0 90 0"
 event-set__mouseenter="_target: #aboutText13; visible: true"
       event-set__mouseleave="_target: #aboutText13; visible: false"
    >
-<a-text id="aboutText13" value="artpiece #4" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
-geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+<a-text id="aboutText13" value="Artist: Fangchun"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+</a-image>
 <!--Artist 17-->
 
 <!--literature right-->
@@ -585,19 +801,119 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
 <!--literature left-->
 
 <!--photography-->
-<a-image position="49.85 5.5 13" src="artwork/photography 9/1cd4fe5faha413ad5bd3aa5a00f4a35e.jpeg" width="7" height="7" rotation="0 270 0"></a-image>
-<a-image position="49.85 5.5 21" src="artwork/photography 9/2932fe251u58fab555aa07b7b4dd2c83 (1).jpeg" width="5" height="7" rotation="0 270 0"></a-image>
-<a-image position="49.85 5.5 28" src="artwork/photography 9/33a26e9d0ma273a7fce99f523b71ae9e (1).jpeg" width="5" height="7" rotation="0 270 0"></a-image>
-<a-image position="49.85 5.5 35" src="artwork/photography 9/3a9542094q44c7c8ea54491be841eb0a (1).jpeg" width="5" height="7" rotation="0 270 0"></a-image>
-<a-image position="45 5.5 39.85" src="artwork/photography 9/49f563353p2f7f1984bfe044fd9e5e78.jpeg" width="5" height="7" rotation="0 180 0"></a-image>
-<a-image position="38 5.5 39.85" src="artwork/photography 9/4229ab386s5303c94d67d8947675013f.jpeg" width="5" height="7" rotation="0 180 0"></a-image>
-<a-image position="31 5.5 39.85" src="artwork/photography 9/552f4b67chb5748090ca4c8595ff2a3f.jpeg" width="5" height="7" rotation="0 180 0"></a-image>
+<a-image position="49.85 5.5 13" src="artwork/photography 9/1cd4fe5faha413ad5bd3aa5a00f4a35e.jpeg" width="7" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText71; visible: true"
+      event-set__mouseleave="_target: #aboutText71; visible: false"
+   >
+<a-text id="aboutText71" value="Title:暴食症Binge Eating Disorder"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+
+<a-image position="49.85 5.5 21" src="artwork/photography 9/cf443e835j20f357b7c22282c155031d.jpeg" width="5" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText72; visible: true"
+      event-set__mouseleave="_target: #aboutText72; visible: false"
+   >
+<a-text id="aboutText72" value="Title:暴食症Binge Eating Disorder"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+
+<a-image position="49.85 5.5 28" src="artwork/photography 9/6bb7dbbcbo87136ca5a03074bb7a597d.jpeg" width="5" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText73; visible: true"
+      event-set__mouseleave="_target: #aboutText73; visible: false"
+   >
+<a-text id="aboutText73" value="Title: 圆寸之下，翩然起舞Elegantly dancing under the inch"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 9; height: 3" material="color: black"></a-text></a-image>
+
+<a-image position="49.85 5.5 35" src="artwork/photography 9/3a9542094q44c7c8ea54491be841eb0a (1).jpeg" width="5" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText74; visible: true"
+      event-set__mouseleave="_target: #aboutText74; visible: false"
+   >
+<a-text id="aboutText74" value="Title: 圆寸之下，翩然起舞Elegantly dancing under the inch"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 9; height: 3" material="color: black"></a-text></a-image>
+
+<a-image position="45 5.5 39.85" src="artwork/photography 9/49f563353p2f7f1984bfe044fd9e5e78.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText75; visible: true"
+      event-set__mouseleave="_target: #aboutText75; visible: false"
+   >
+<a-text id="aboutText75" value="Title: 圆寸之下，翩然起舞Elegantly dancing under the inch"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 9; height: 3" material="color: black"></a-text></a-image>
+<a-image position="38 5.5 39.85" src="artwork/photography 9/4229ab386s5303c94d67d8947675013f.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText76; visible: true"
+      event-set__mouseleave="_target: #aboutText76; visible: false"
+   >
+<a-text id="aboutText76" value="Title: 谁让裙子成为了枷锁Who turned the skirt into a shackle"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 10; height: 3" material="color: black"></a-text></a-image>
+<a-image position="31 5.5 39.85" src="artwork/photography 9/552f4b67chb5748090ca4c8595ff2a3f.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText77; visible: true"
+      event-set__mouseleave="_target: #aboutText77; visible: false"
+   >
+<a-text id="aboutText77" value="Title: 谁让裙子成为了枷锁Who turned the skirt into a shackle"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 10 ; height: 3" material="color: black"></a-text></a-image>
 <a-image position="20 5 39.6" src="images/The Escape from Beauty Obligation Plan.png" width="13" height="10" rotation="0 180 0"></a-image>
-<a-image position="9.5 5.5 39.6" src="artwork/photography 9/6bb7dbbcbo87136ca5a03074bb7a597d.jpeg" width="5" height="7" rotation="0 180 0"></a-image>
-<a-image position="0.5 5.5 39.6" src="artwork/photography 9/901cd38f8k302fff47d937eb23771482.jpeg" width="5" height="7" rotation="0 180 0"></a-image>
-<a-image position="-10 5.5 39.6" src="artwork/photography 9/af47b56e4tfce358fad4d7be6425711b.jpeg" width="5" height="7" rotation="0 180 0"></a-image>
-<a-image position="-20 5.5 39.6" src="artwork/photography 9/cbd1ac567h2d3d7e33c4faa2248042a4.jpeg" width="5" height="7" rotation="0 180 0"></a-image>
-<a-image position="-30 5.5 39.6" src="artwork/photography 9/cf443e835j20f357b7c22282c155031d.jpeg" width="5" height="7" rotation="0 180 0"></a-image>
+<a-image position="9.5 5.5 39.6" src="artwork/photography 9/2932fe251u58fab555aa07b7b4dd2c83 (1).jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText78; visible: true"
+      event-set__mouseleave="_target: #aboutText78; visible: false"
+   >
+<a-text id="aboutText78" value="Title: 想跑就跑Run if you want to"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+<a-image position="0.5 5.5 39.6" src="artwork/photography 9/33a26e9d0ma273a7fce99f523b71ae9e (1).jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText79; visible: true"
+      event-set__mouseleave="_target: #aboutText79; visible: false"
+   >
+<a-text id="aboutText79" value="Title: 想跑就跑Run if you want to"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="-10 5.5 39.6" src="artwork/photography 9/af47b56e4tfce358fad4d7be6425711b.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText80; visible: true"
+      event-set__mouseleave="_target: #aboutText80; visible: false"
+   >
+<a-text id="aboutText80" value="Title: 女生张开腿坐，真没教养Girls sit with their legs open, so uneducated"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="-20 5.5 39.6" src="artwork/photography 9/cbd1ac567h2d3d7e33c4faa2248042a4.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText81; visible: true"
+      event-set__mouseleave="_target: #aboutText81; visible: false"
+   >
+<a-text id="aboutText81" value="Title: 踩过界Stepping Over Boundaries"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="-30 5.5 39.6" src="artwork/photography 9/901cd38f8k302fff47d937eb23771482.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText82; visible: true"
+      event-set__mouseleave="_target: #aboutText82; visible: false"
+   >
+<a-text id="aboutText82" value="Title: 不潮人街拍Out-of-fashion Street Photography"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="-40 5.5 39.6" src="artwork/photography 9/30fd427c5g12efa9b4418befe6ce7d70.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText83; visible: true"
+      event-set__mouseleave="_target: #aboutText83; visible: false"
+   >
+<a-text id="aboutText83" value="Title: 化妆如何束缚了我How Makeup Restrains Me"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
 
 <a-image position="49.85 5.5 5" src="artwork/literature 19/2.jpeg" width="7" height="7" rotation="0 270 0"></a-image>
 <a-image position="49.85 5.5 -3" src="artwork/literature 19/1.jpeg" width="7" height="7" rotation="0 270 0"></a-image>

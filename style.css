@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'ChineseFont';
-    src: url('chinese.ttf') format('truetype');
-  }
-  
-  .chinese-text {
-    font-family: 'ChineseFont';
-  }

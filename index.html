@@ -28,13 +28,29 @@
   }
 });
     </script>
+
+    <script>
+      AFRAME.registerComponent('navigate-on-click', {
+        schema: {
+          url: {default: ''}
+        },
+    
+        init: function () {
+          var data = this.data;
+          var el = this.el;
+    
+          el.addEventListener('click', function () {
+            window.location.href = data.url;
+          });
+        }
+      });        
+    </script>
   </head>
 
   <body>
     <a-scene loading-screen="dotsColor: red; backgroundColor: black" vr-mode-ui="enabled: false" joystick>
 
       <!--Testing-->
-      <a-box color="red" link="href: link.html; on: click" position="2 2 -8"></a-box>
       <!--Animation
       <a-cylinder color="#F55" radius="0.1"
                 animation="property: components.material.material.color; type: color; dir: alternate; dur: 1000;
@@ -52,6 +68,7 @@
   <a-image position="0.005 3.54 0.005" src="#title" width="15" height="7"></a-image>
   <a-image position="0 3.54 -1.005" src="images/title2.jpg" width="15" height="7" rotation="0 180 0"></a-image>
   <a-image position="19.5 4 2.9" src="images/innovation.png" width="6" height="8" rotation="180 160 180"></a-image>
+  <a-image position="19.7 4 2.09" src="images/innovation (1).png" width="6" height="8" rotation="0 160 0"></a-image>
 
   <a-entity light="type: point; intensity: 3; distance: 80; decay: 25"
   position="39 5 -19"></a-entity>
@@ -59,8 +76,10 @@
   position="0 5 7"></a-entity>
   <a-entity light="type: point; intensity: 5; distance: 100; decay: 25"
   position="0 5 -27"></a-entity>
-  <a-entity light="type: point; intensity: 5; distance: 100; decay: 25"
+  <a-entity light="type: point; intensity: 3.5; distance: 120; decay: 30"
   position="20 5 39"></a-entity>
+  <a-entity light="type: point; intensity: 3; distance: 80; decay: 25"
+  position="28 5 -28"></a-entity>
   <a-entity light="type: ambient; intensity: 1"
   position="0 10 0"></a-entity>
   
@@ -74,6 +93,7 @@
         <a-assets-item id="board" src="assets/standing_chalkboard_01_4k.gltf/standing_chalkboard_01_4k.gltf"></a-assets-item>
         <a-assets-item id="stanchion" src="assets/stanchions/scene.gltf"></a-assets-item>
         <a-assets-item id="title" src="images/title.jpg"></a-assets-item>
+        <a-assets-item id="button" src="assets/low_poly_emergency_button/scene.gltf"></a-assets-item>
         <img id="play" src="assets/play.png"></img>
         <img id="pause" src="assets/pause.png"></img>
         <video id="video1" src="artwork/video 1/1975.mp4" loop="true"></video>
@@ -131,7 +151,7 @@
       <a-box color="white" position="40 2 20" width="22" height="10" depth="1" rotation="0 90 0"></a-box>
 
       <!--Corner walls bent on top right-->
-      <a-box color="white" position="27 2 -30" width="15" height="10" depth="1" rotation="0 20 0"></a-box>
+      <a-box color="white" position="27 2 -30" width="25" height="10" depth="1" rotation="0 20 0"></a-box>
       <a-box color="white" position="42 2 -20" width="20" height="10" depth="1" rotation="0 100 0"></a-box>
 
       <!--Video place-->
@@ -174,7 +194,7 @@ Artist: Helen (Analeia) Lam
 This painting, created in November-December 2022, is from the &quot;Embryo is on period&quot; printmaking series. The work is inspired by period shame and sanitary napkin shame. It also includes elements of a Chinese window pane, the author's own personal IP &quot;Embryo,&quot; and a portion of the author&apos;s another work, &quot;Bestower of Embryo&quot;. The whole work starts with &quot;placing the sanitary napkin on the window pane&quot; and deals with bigger issues such as menstrual shame, the sanitary napkin revolution, and feminism.
 "
 
-wrap-count="150" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
+wrap-count="150" font="https://cdn.aframe.io/fonts/Exo2Bold.fnt" width="15" align="center" color="#FFF" visible="false" position="0 5 0"
 geometry="primitive: plane; width: 15; height: 3" material="color: black"></a-text>
 </a-image>
 
@@ -529,6 +549,28 @@ event-set__mouseenter="_target: #aboutText13; visible: true"
 geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
 <!--Artist 17-->
 
+<!--literature right-->
+<a-image position="24.4 3.5 -28.4" src="artwork/literature 24/11.jpeg" width="5" height="5" rotation="0 20 0"></a-image>
+<a-image position="19 3.5 -26.47" src="artwork/literature 24/10.jpeg" width="5" height="5" rotation="0 20 0"></a-image>
+<a-image position="29.75 3.5 -30.42" src="artwork/literature 24/12.jpeg" width="5" height="5" rotation="0 20 0"></a-image>
+<a-image position="35.3 3.5 -32.34" src="artwork/literature 24/13.jpeg" width="5" height="5" rotation="0 20 0"></a-image>
+<a-image position="18 3.5 -27.3" src="artwork/literature 23/9.jpeg" width="5" height="5" rotation="180 20 180"></a-image>
+<a-image position="24 3.5 -29.55" src="artwork/literature 23/8.jpeg" width="5" height="5" rotation="180 20 180"></a-image>
+<!--literature right-->
+
+<!--literature left-->
+<a-image position="-15 5.75 -39.53" src="artwork/literature 22/7.jpeg" width="5" height="5" rotation="0 0 0"
+navigate-on-click="url: http://google.com"></a-image>
+<a-image position="-23 5.75 -39.53" src="artwork/literature 22/6.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="-31 5.75 -39.53" src="artwork/literature 25/14.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="-39 5.75 -39.53" src="artwork/literatureeee 26/15.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="-47 5.75 -39.53" src="artwork/literatureeee 26/16.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="15 5.75 -39.53" src="artwork/literatureeee 26/17.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="23 5.75 -39.53" src="artwork/literatureeee 26/18.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="31 5.75 -39.53" src="artwork/literatureeee 26/19.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="39 5.75 -39.53" src="artwork/literatureeee 26/20.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<!--literature left-->
+
 <!--photography-->
 <a-image position="49.85 5.5 13" src="artwork/photography 9/1cd4fe5faha413ad5bd3aa5a00f4a35e.jpeg" width="7" height="7" rotation="0 270 0"></a-image>
 <a-image position="49.85 5.5 21" src="artwork/photography 9/2932fe251u58fab555aa07b7b4dd2c83 (1).jpeg" width="5" height="7" rotation="0 270 0"></a-image>
@@ -573,6 +615,10 @@ geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-tex
       <a-entity gltf-model="#stanchion" position="-2 0 13.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
       <a-entity gltf-model="#stanchion" position="-2 0 15.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
 
+              <!--Website button-->
+      <a-entity gltf-model="#button" position="38 0.8 -30" rotation="0 -90 90" scale="0.8 0.8 0.8" link="href: link.html; on: click"></a-entity>
+              
+      
               <!--artframes-->
       <a-entity gltf-model="#frame" position="-29.6 1 -9.4" rotation="0 0 0" scale=".02 .02 .029"></a-entity>
 

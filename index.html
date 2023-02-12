@@ -45,6 +45,18 @@
         }
       });        
     </script>
+
+<script>
+  const videoButtons = document.querySelectorAll('.video-button');
+  const plane = document.querySelector('a-plane');
+
+  videoButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      plane.setAttribute('material', 'src', '#' + this.value);
+    });
+  });
+</script>
+
   </head>
 
   <body>
@@ -96,6 +108,9 @@
         <img id="play" src="assets/play.png"></img>
         <img id="pause" src="assets/pause.png"></img>
         <video id="video1" src="artwork/video 1/1975.mp4" loop="true"></video>
+        <video id="video2" src="artwork/video2/2038.mp4" loop="true"></video>
+        <video id="video3" src="artwork/video2/5198 (2).mp4" loop="true"></video>
+        <video id="video4" src="artwork/video2/Untitled.mp4" loop="true"></video>
 
       </a-assets>
       

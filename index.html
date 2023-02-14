@@ -106,9 +106,6 @@ this.el.addEventListener('mouseleave', function () {
   </head>
 
   <body>
-    <div id="loading">
-      Loading...
-    </div>
     <a-scene loading-screen="dotsColor: red; backgroundColor: black" vr-mode-ui="enabled: false" joystick>
 
       <!--Testing-->
@@ -193,7 +190,7 @@ geometry="primitive: plane; width: 5; height: 2" material="color: black"></a-tex
       </a-assets>
 
       <!--Camera controls-->
-      <a-camera id="camera" camera="active: true" wasd-controls="acceleration: 50" position="0 3.5 15" device-orientation-permission-ui="enabled: false" touch-controls>
+      <a-camera id="camera" camera="active: true" wasd-controls="acceleration: 50" position="0 3.5 15">
         <a-cursor></a-cursor>
       </a-camera>
 
